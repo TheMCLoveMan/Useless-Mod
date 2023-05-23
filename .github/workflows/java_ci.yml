@@ -2,6 +2,8 @@ name: Java CI
 
 on:
   push:
+    branches-ignore:
+      - '**-dev'
     paths-ignore:
       - '.github/**'
       - '**.md'
