@@ -3,7 +3,7 @@ name: Publish
 on:
   push:
     tags:
-      - '*'
+      - '*.*.*-*.*.*'
 
 permissions:
   contents: read
@@ -35,3 +35,8 @@ jobs:
       run: ./gradlew curseforge
     - name: Publish to Modrinth
       run: ./gradlew modrinth
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        body_path: changelog.md
+        files: output/libs/**.jar
